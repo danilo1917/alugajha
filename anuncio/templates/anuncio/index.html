@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{%block title%}Alugajha{%endblock%}
+{%load static%}
+{%block conteudo%}
+<link rel = "stylesheet" href = {% static 'css/estilos.css'%} >
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+         
+          <h1>Olá, {{user.username}}</h1>
+          <p>Experimente a plataforma: divulgue seus próprios imóveis ou encontre algum que lhe satisfaça</p>
+          
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+
+        
+            <div class="row">
+              {% for anuncio in object_list %}
+              <div class="col">
+                  {%if anuncio.titulo|length < 23%}
+                      <h2>{{anuncio.titulo}}</h2><br>
+                  {% else %}
+                      <h2>{{anuncio.titulo}}</h2>
+                  {%endif%}
+                  
+                  <img src ={%static anuncio.foto %}  class = "image">
+                  <p>Localizado em {{anuncio.localizacao}}. Pertencente a {{anuncio.locador}} </p>
+                  <p><a class="btn btn-secondary" href="{%url 'imovel' anuncio.id%}" role="button">Ver detalhes &raquo;</a></p>
+              </div>
+              {% endfor %}
+            </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+    <footer class="footer">
+      <span class="copy">&copy; Alugajha 2022</p>
+    </footer>
+{%endblock%}

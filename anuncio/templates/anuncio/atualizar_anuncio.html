@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block conteudo %}
+{% load crispy_forms_tags%}
+<link rel = "stylesheet" href = "{%static 'css/estilos_conta.css'%}">
+<div class="container center-block">
+    <div class="jumbotron">
+        <div class="container">
+                <h1>Edite este anúncio: "{{form.titulo.value}}"</h1><br>
+                    <form method = "post"  enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="form-row">
+
+                            {{form|crispy}}
+
+                        </div>
+
+                        <button type = "submit" class= "btn-primary"> Cadastrar Edição</button>
+                    </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

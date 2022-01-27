@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block conteudo %}
+
+<link rel = "stylesheet" href = "{%static 'css/estilos_conta.css'%}">
+<div class="container center-block">
+    <div class="jumbotron">
+        <div class="container">
+                <h1>Excluir este anúncio: "{{object}}" ?</h1><br>
+                    <form method = "post"  enctype="multipart/form-data">
+                        {% csrf_token%}
+
+                    <button type = "submit" class= "btn-danger"> Excluir </button> 
+                    </form>
+                    <a href = "{% url 'meus_anuncios'%}" style="text-align:right"><button class= "btn-primary"> Cancelar </button></a>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

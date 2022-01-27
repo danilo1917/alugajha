@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title%}Imóvel {{imovel.id}}{%endblock%}
+{%load static%}
+
+{% block conteudo%}
+<link rel = "stylesheet" href = {% static 'css/estilos_imovel.css'%} >
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="mt-5">{{imovel.titulo}}</h1>
+        <dl>
+          {% if imovel.foto %}
+            <dt>Foto</dt>
+            <img src="{{imovel.foto.url}}" alt = '-' class = "image">
+          {% endif %}
+          <dt>ID</dt>
+          <dd>{{imovel.id}}</dd>
+
+          <dt>Telefone de contato</dt>
+          <dd>{{imovel.telefone}}</dd>
+
+          <dt>Locador</dt>
+          <dd>{{imovel.locador}}</dd>
+
+          <dt>Data de postagem</dt>
+          <dd>{{imovel.data_post|date:'d/m/Y'}}</dd>
+
+          <dt>Localização</dt>
+          <dd>{{imovel.localizacao}}</dd>
+
+          <dt>Valor do aluguel</dt>
+          <dd>
+            R${{imovel.preco}}0
+          </dd>
+        </dl>
+
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer class="footer">
+    <span class="copy">&copy; Alugajha 2022</p>
+  </footer>
+{%endblock%}

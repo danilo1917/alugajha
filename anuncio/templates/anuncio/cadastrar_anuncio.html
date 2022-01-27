@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags%}
+{% block title%}Cadastrar anúncio{% endblock %}
+{% block  conteudo %}
+
+<link rel = "stylesheet" href = "{%static 'css/estilos_conta.css'%}">
+<div class="container center-block">
+    <div class="jumbotron">
+        <div class="container">
+            {% if user.is_authenticated %}
+                <p style="color:green">{{mensagem}}</p>
+                <h1>Cadastre um anúncio!</h1>
+                <p>Desfrute dos benefícios da divulgação de seus imóveis.</p>
+                    <form method = "post"  enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="form-row">
+
+                            {{form|crispy}}
+
+                        </div>
+
+                        <button type = "submit" class= "btn-primary"> Cadastrar Anúncio</button>
+                    </form>
+                {%else%}
+                    <h1>Você deve estar logado para anunciar um imóvel</h1>
+                    <p><a href = {%url 'login'%}>Vá para a página de login</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock   %}
