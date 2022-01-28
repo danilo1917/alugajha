@@ -5,8 +5,13 @@
 {% block conteudo%}
 <link href="{% static 'css/estilos_login.css'%}" rel="stylesheet">
 {%if not user.is_authenticated%}
-<div class = "container center-block">
-<div class="col text-center ">
+<div class = "jumbotron text-center">
+  <h1>Entre com sua conta</h1>
+</div>
+<div class = "container">
+  
+<div class="col-md text-center ">
+  
   <p style="color:red">{{mensagem}}</p>
     <form class="form-signin" method = 'post' action = {%url 'login'%} >
         {% csrf_token %}
@@ -14,11 +19,10 @@
             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
           </svg>
-      <h1 class="h3 mb-3 font-weight-normal">Entre com sua conta</h1>
           {{form|crispy}}
       <button class="btn btn-lg btn-primary btn-block" type="submit" style = "background-color:#212529">Entrar</button>
-    <p><a href = {%url 'password_reset'%}> Esqueceu a senha ?</a></p>
     </form>
+  
 </div>
 </div>
 {%else%}

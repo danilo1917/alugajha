@@ -18,7 +18,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" > 
+    <nav class="navbar navbar-expand-md navbar-dark  bg-dark" > 
       
       <a class="navbar-brand" href="{%url 'index' %}"><img src = {%static 'favicon.svg'%}></img> Alugajha</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,8 +67,8 @@
           {% endif %}
         </ul>
         <form class="form-inline my-2 my-lg-0" method = "get" action = {%url 'busca'%} >
-          <input class="form-control" type="search" value="{{ request.GET.termo }}" id="search-input"  placeholder="Buscar imóveis" name="termo">&nbsp
-          <button class="btn btn-secondary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" style = "color:white" width="17" height="17" fill="currentColor" class="bi bi-search " viewBox="0 0 16 16">
+          <input class="form-control responsive" type="search" value="{{ request.GET.termo }}" id="search-input"  placeholder="Buscar imóveis" name="termo">&nbsp
+          <button class="btn btn-secondary " type="submit"><svg xmlns="http://www.w3.org/2000/svg" style = "color:white" width="17" height="17" fill="currentColor" class="bi bi-search " viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg></button>
         </form>
@@ -76,10 +76,12 @@
     </nav>
 
     {%block conteudo%}{%endblock%}
-    
 
-    
-
+{% if object_list or imovel or resultados%}
+    <footer class="footer">
+      <span class="copy ">&copy; Alugajha 2022</p>
+    </footer>
+{%endif%}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

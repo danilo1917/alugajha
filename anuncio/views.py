@@ -52,7 +52,7 @@ def login_usr(request):
 
 class ContaCreate(CreateView):
     model = User
-    fields = ["first_name", "last_name", "email", "password"]
+    fields = ["first_name", "last_name", User.EMAIL_FIELD, User.USERNAME_FIELD, "password"]
     template_name = "registration/criar_conta.html"
     success_url = reverse_lazy('login')
 
@@ -60,7 +60,7 @@ class ContaCreate(CreateView):
         return 'login'
    
     def form_valid(self, form) :
-        User.objects.create_user(email = self.request.POST.get("email"), username = self.request.POST.get("email"), password = self.request.POST.get("password"))
+        User.objects.create_user(email = self.request.POST.get("email"), username = self.request.POST.get("username"), password = self.request.POST.get("password"))
         return HttpResponseRedirect(self.get_success_url())
 
 class AnuncioCreate(CreateView):
