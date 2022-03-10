@@ -29,7 +29,7 @@
                       <h2>{{anuncio.titulo}}</h2>
                   {%endif%}
                   {%if anuncio.foto%}
-                    <img src ={%static anuncio.foto %}  class = "image">
+                    <img src ={%static anuncio.foto %}  alt = "Imagem não encontrada" class = "image">
                   {%else%}
                     <img src = "templates/predio_default.jpg" class = "image">
                   {%endif%}
