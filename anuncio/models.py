@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Anuncio(models.Model):
     titulo = models.CharField(max_length=150)
-    foto = models.ImageField(upload_to = 'images/')
+    foto = models.ImageField()
     localizacao = models.CharField(max_length=200)
     preco = models.FloatField()
     locador = models.CharField(max_length=50)
