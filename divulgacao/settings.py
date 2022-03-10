@@ -31,7 +31,7 @@ else:
     DEBUG =  False
 
 
-ALLOWED_HOSTS = ["https://alugajha.herokuapp.com/",]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
