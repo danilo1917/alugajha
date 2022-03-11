@@ -33,4 +33,3 @@
           Gives correct STATIC_URL and not google generated url.
           """
           return urljoin(settings.STATIC_URL, name)
-view rawgcloud.py hosted with ❤ by GitHub
