@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "alugajha",
+  "private_key_id": "fe00beed387df701f5f87dcf2d08549c568eedaa",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVUiK9z5BjWWfp\no46AwWfe3FGiap3wRUmZu6qDMWilS6OUoHrN+X/+QfnHV7zqiiZ0I12ogRjpJ73K\nDAc1IXnHs5ZDARp5MVr0/pJVoIQnwWDKfXOd0najCv6E6e6Z0MkLtDouKAmsvDPV\nTxFXKApZ7acd5yUt9BVzRwH50YX+bsAX75By4dFVXCjhdjd6JzOlU3qJ0tw9FX6R\nbNPj5PRSR5o8qM8BwzkBOVkUiDFYFmyWtqmTQy5z2cUNyycIhrZswzf+8gEb+wCy\nClMkPYP+mE5tzd2PrWEAYnT2J9V6BpG9yJhicKUQbAqIWSuFM6noPUVbxyl0ibCM\nOpVgPa5jAgMBAAECggEARctuX4Eigkb11z0yulDNTd7y/Lt6emsJFjoPI4aOcQqq\n9k19cJfx9zwZ382Gm4xg4X3SvneisWJV194Qm6Mcx6isALdDNKTf2CnUshxnMOS1\n6Pqb0ebS9yx5Mv6hGQV1ShWJNaHW7IPVR7TrfQM2Q88cbw26Hetu+z0f2d9iQmjc\nAZI18ldavVGeg+ly1brZ+Bn16+L2vlNnYtD/9F7P2P+9wpTrRX29eCQWTQsmE+z5\nEkkYhhvpSir1op1YUtyD8Xvnj5DA2Eo69+LS72w1q2iN5p5sBYmsYQBf42gvH0UL\ncboiJr5IRL4aZ0yj1ZT0kpN8uAjPoCMmiajBzo9ouQKBgQDx1B0WE26BP9Yk++Uj\nVE3xhZYHccex76WSS1+zcuf0rQw/apnVGO+uUliT3/Q21EF1vMgRokmV2/CflWBh\ns/t8mt2P+OChsISjb+0gboy5aA3A8YONHXzdz6KZd89yCiZ98C3GmsLPnKSG87E3\nrEW2rEXYt4cmh1xq+wUceIfGOQKBgQDh0lorYOKvF4HNgjk3o9yRp9OVg/8fkOJg\n8y9H2/UriP1Dbal/TEiDfcjYb/mGA6Sr4kHkv3D03L9bSLu6sjlyWcN/pAWVic9m\nzVF2eNYU2L1ihXMVfHp/tUlDemF0p0mpmOxku0NsFEUGpaypLD9mx1KasJCOK6lq\nl5AVQNT5ewKBgQCavfAewDBl5ENTRxxIjxmRAroN6XCvG3oHMtP6L/zdRB4iNkRZ\nZ6t3EJo9hYDv1MJOZI5hOkd77VD7zMnvuwuhoDdGeSrES/+T1XsW1aaWvU6Pt/tF\nwSi1hre1HEVR48zdqWKhQ0aFMubUs/sidMnnKjVHh6ijrtokWpvarAW1gQKBgAti\nd3lIYSVCoiCiOBA+CpitRVV8WhhVTZRlrjSJOkr/lQUZOjpYti8q4D1JJ+NBu8OO\nnJPTsvYlSuBnQk+fPJYvQFPnCQEI+ZPNNhYq8WALrUCSScMDi4l0skTcnp0q8ePC\n+ef6KOQCAZjcMWA2AtxDoD58OE1ylg/xpCnuIs6RAoGBAImnxhMRAyEvZWBBGIle\nIs2EZ/h3rG7NTHymQqv31YIeh2IZzfaWSuyypzHrPh/joDDMolvbc8VHPlnbUCRo\neZ0D3NDZZadwXRxXN4GPOnydV7x4AcDS6pCY6pPjwLbMGDKlx1xzeOBZ63wUiv0P\ng5lUYcCTtobc8gaiyhu9flZ/\n-----END PRIVATE KEY-----\n",
+  "client_email": "alugajha-danilo@alugajha.iam.gserviceaccount.com",
+  "client_id": "104410378296198636130",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alugajha-danilo%40alugajha.iam.gserviceaccount.com"
+}

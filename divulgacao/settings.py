@@ -34,6 +34,27 @@ else:
 ALLOWED_HOSTS = ["https://alugajha.herokuapp.com/","127.0.0.1:8000/" ]
 
 
+##############################################################
+        
+DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
+STATICFILES_STORAGE = 'gcloud.GoogleCloudStaticFileStorage'
+    
+GS_PROJECT_ID = 'alugjha-danilo'
+GS_STATIC_BUCKET_NAME = 'alugajha'
+GS_MEDIA_BUCKET_NAME = 'alugajha'  # same as STATIC BUCKET if using single bucket both for static and media
+    
+STATIC_URL = 'https://storage.googleapis.com/{}/'.format(GS_STATIC_BUCKET_NAME)
+STATIC_ROOT = "static/"
+
+MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_MEDIA_BUCKET_NAME)
+MEDIA_ROOT = "media/"
+    
+UPLOAD_ROOT = 'media/uploads/'
+    
+DOWNLOAD_ROOT = os.path.join(PROJECT_ROOT, "static/media/downloads")
+DOWNLOAD_URL = STATIC_URL + "media/downloads"
+#############################################################
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -129,15 +150,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATIC_URL = '/static/'
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
