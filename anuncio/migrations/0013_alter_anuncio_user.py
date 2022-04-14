@@ -10,13 +10,17 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('anuncio', '0012_alter_anuncio_user'),
+        ("anuncio", "0012_alter_anuncio_user"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='anuncio',
-            name='user',
-            field=models.ForeignKey(default=django.contrib.auth.base_user.AbstractBaseUser.get_username, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="anuncio",
+            name="user",
+            field=models.ForeignKey(
+                default=django.contrib.auth.base_user.AbstractBaseUser.get_username,
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

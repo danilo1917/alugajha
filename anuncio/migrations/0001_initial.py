@@ -8,22 +8,34 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Anuncio',
+            name="Anuncio",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo', models.CharField(max_length=150)),
-                ('foto', models.ImageField(upload_to='')),
-                ('localizacao', models.CharField(max_length=200)),
-                ('preco', models.FloatField()),
-                ('locador', models.CharField(max_length=50)),
-                ('data_post', models.DateField(auto_now=True)),
-                ('alugado', models.BooleanField(default=False)),
-                ('telefone', phonenumber_field.modelfields.PhoneNumberField(max_length=128, region=None)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=150)),
+                ("foto", models.ImageField(upload_to="")),
+                ("localizacao", models.CharField(max_length=200)),
+                ("preco", models.FloatField()),
+                ("locador", models.CharField(max_length=50)),
+                ("data_post", models.DateField(auto_now=True)),
+                ("alugado", models.BooleanField(default=False)),
+                (
+                    "telefone",
+                    phonenumber_field.modelfields.PhoneNumberField(
+                        max_length=128, region=None
+                    ),
+                ),
             ],
         ),
     ]

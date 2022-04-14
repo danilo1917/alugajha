@@ -27,12 +27,9 @@
                       <h2>{{anuncio.titulo}}</h2><br>
                   {% else %}
                       <h2>{{anuncio.titulo}}</h2>
-                  {%endif%}
-                  {%if anuncio.foto%}
-                    <img src ={%static anuncio.foto %}  alt = "Imagem não encontrada" class = "image">
-                  {%else%}
-                    <img src = "templates/predio_default.jpg" class = "image">
-                  {%endif%}
+                  {%endif%}  
+                  <img src ={%static anuncio.foto %} class = "image">
+                  
                   <p>Localizado em {{anuncio.localizacao}}. Pertencente a {{anuncio.locador}} </p>
                   <p><a class="btn btn-secondary" href="{%url 'imovel' anuncio.id%}" role="button">Ver detalhes &raquo;</a></p>
               </div>
