@@ -1,44 +1,64 @@
-{%extends 'base.html'%}
+{%extends 'base2.html'%}
 {% load static%}
-{% block title%}Alugajha{% endblock %}
+{% block titulo%}Alugajha{% endblock %}
 {%block conteudo%}
-<link rel = "stylesheet" href = {% static 'css/estilos.css'%} >
+<link rel="stylesheet" href={% static 'css/estilos.css'%}>
+
 <main role="main">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        {%if resultados%}
-        <h1>Confira os resultados de sua busca</h1>
-        <p>São estes os imóveis que está procurando ?</p>
-        {%else%}
-        <h1>Nenhum título de imóvel encontrado =(</h1>
-        {%endif%}
-        
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      {%if resultados%}
+      <h1>Confira os resultados de sua busca</h1>
+      <p>São estes os imóveis que está procurando ?</p>
+      {%else%}
+      <h1>Nenhum título de imóvel encontrado =(</h1>
+      {%endif%}
+
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+
+    {%if resultados%}
+    <div class="row">
+      {% for id, anuncio in resultados.items %}
+      <div class="col-md-6 col-lg-4 col-xl-4">
+        <div class="blog-box">
+          <div class="blog-img">
+            <h3>{{anuncio.titulo}}</h3>
+            <img class="img-fluid" src="{%static anuncio.foto %}" class="image" alt="" />
+          </div>
+          <div class="blog-content">
+            <div class="title-blog">
+              <h3>Localizado em: {{anuncio.localizacao}}. Pertencente a: {{anuncio.locador}}</h3>
+              <p><a class="btn " href="{%url 'imovel' anuncio.id%}" style="background-color:#81B71A; color:white;"
+                  role="button">Ver detalhes &raquo;</a></p>
+
+            </div>
+
+          </div>
+        </div>
       </div>
+
+      {%endfor%}
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
+    <hr>
 
-      
-          <div class="row">
-            {% for id, anuncio in resultados.items %}
-            <div class="col-md-4">
-                
-                <h2>{{anuncio.titulo}}</h2>
-                
-                <img src ={%static anuncio.foto %}  class = "image">
-                <p>Localizado em {{anuncio.localizacao}}. Um imóvel em ótimas condições, pertencente a {{anuncio.locador}} </p>
-                <p><a class="btn btn-secondary" href="{%url 'imovel' anuncio.id%}" role="button">Ver detalhes &raquo;</a></p>
-            </div>
-            {% endfor %}
-          </div>
+    {%endif%}
 
-      <hr>
+  </div> <!-- /container -->
 
-    </div> <!-- /container -->
+</main>
 
-  </main>
-  
 {%endblock%}
+{%if resultados%}
+{%block footer%}
+<div class="footer-copyright">
+  <p class="footer-company">Todos os direitos reservados. &copy; 2022 <a href="#">Alugajha</a></p>
+</div>
+{%endblock%}
+{%endif%}

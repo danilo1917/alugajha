@@ -12,11 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-import django_heroku
-<<<<<<< HEAD
 
-=======
->>>>>>> 821995cac53620fc662ca36670cee6665fd2c166
+import cloudinary_storage
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,7 +31,6 @@ if "True" in DEBUG:
     DEBUG = True
 else:
     DEBUG = False
-DEBUG = True
 
 ALLOWED_HOSTS = ["https://alugajha.herokuapp.com/", "127.0.0.1:8000/"]
 
@@ -45,11 +43,14 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
     "anuncio",
     "phonenumber_field",
     "crispy_forms",
 ]
+
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 MIDDLEWARE = [
@@ -135,6 +136,12 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, "me
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': str(os.environ.get("CLOUDINARY_NAME")),
+    'API_KEY': str(os.environ.get("CLOUDINARY_API_KEY")),
+    'API_SECRET': str(os.environ.get("CLOUDINARY_API_SECRET"))
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

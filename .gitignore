@@ -1,9 +1,7 @@
 /env/
-projeto_blog.txt
-desktop.ini
 /media/
 /static/
 /staticfiles/
-.vscode
+/.vscode/
 /.mypy_cache/
 /__pycache__/

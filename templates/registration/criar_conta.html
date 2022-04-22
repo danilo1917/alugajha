@@ -1,28 +1,30 @@
-{%extends 'base.html'%}
+{%extends 'base2.html'%}
 {%load static%}
 {%load crispy_forms_tags%}
 {% block title%}Cadastrar usuário{% endblock %}
 {%block conteudo%}
-<link rel = "stylesheet" href = {% static 'css/estilos_conta.css'%} >
+<link rel="stylesheet" href={% static 'css/estilos_conta.css'%}>
 <div class="container col-md-6" style="margin-top:5%">
     <div class="jumbotron">
         <div class="container">
-          <h1>Crie sua conta!</h1>
-          <p>Desfrute dos benefícios da divulgação de seus imóveis.</p>
-          
-    <form class="needs-validation" novalidate method = "post" action = {%url 'criar_conta'%}> 
-        {%csrf_token%}
-        <div class="container"> 
-            {{form|crispy}}
+            <h1>Crie sua conta!</h1>
+            <p>Desfrute dos benefícios da divulgação de seus imóveis.</p>
+
+            <form class="needs-validation" novalidate method="post" action={%url 'criar_conta'%}>
+                {%csrf_token%}
+                <div class="container">
+                    {{form|crispy}}
+                </div>
+                <button class="btn btn-primary" type="submit" style="background-color:#81B71A">Enviar</button>
+            </form>
         </div>
-        <button class="btn btn-primary" type="submit">Enviar</button>
-    </form>
-</div>
-</div>
+    </div>
 </div>
 <hr>
-    <footer class="footer ">
-      <span class="copy ">&copy; Alugajha 2022</p>
-</footer>
 
+{%endblock%}
+{%block footer%}
+<div class="footer-copyright">
+    <p class="footer-company">Todos os direitos reservados. &copy; 2022 <a href="#">Alugajha</a></p>
+</div>
 {%endblock%}

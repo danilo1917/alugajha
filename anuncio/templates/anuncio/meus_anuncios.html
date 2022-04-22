@@ -1,47 +1,50 @@
-{% extends 'base.html'%}
+{% extends 'base2.html'%}
 {%load static%}
 {% block title%}Meus anúncios{% endblock %}
 {%block conteudo%}
-<link rel = "stylesheet" href = {% static 'css/estilos.css'%} >
+<link rel="stylesheet" href={% static 'css/estilos.css'%}>
 
-    <main role="main">
+<main role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-        {% if user.is_authenticated %}
-          <h1>Olá, {{user.username}}</h1>
-          <p>Estes são os imóveis cadastrados por você:</p>
-          
-        </div>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  {% if user.is_authenticated %}
+
+
+  <div class="container">
+    <!-- Example row of columns -->
+
+
+    <div class="row">
+      {% for anuncio in object_list %}
+      {% if anuncio.user == user%}
+      <div class="col-md-4">
+
+        <h2>{{anuncio.titulo}}</h2>
+
+        <img src={%static anuncio.foto %} class="image">
+        <p>Localizado em {{anuncio.localizacao}}. Um imóvel em ótimas condições, pertencente a {{anuncio.locador}} </p>
+        <p><a class="btn" href="{%url 'excluir_anuncio' anuncio.id%}" role="button" style="border-color:black"> Excluir
+            &raquo;</a> <a class="btn " style="background-color:black; color:white;"
+            href="{%url 'editar_anuncio' anuncio.id%}" role="button"> Editar &raquo;</a> <a class="btn btn-primary"
+            style="background-color:#81B71A" href="{%url 'imovel' anuncio.id%}" role="button"> Visualizar &raquo;</a>
+        </p>
       </div>
+      {%endif%}
+      {% endfor %}
+    </div>
+    {%else%}
+    <h1>Você deve estar logado para ver seus imóveis</h1>
+    <p><a href={%url 'login'%}>Vá para a página de login</a>
+    {%endif%}
+    <hr>
 
-      <div class="container">
-        <!-- Example row of columns -->
+  </div> <!-- /container -->
 
-        
-            <div class="row">
-              {% for anuncio in object_list %}
-                {% if anuncio.user == user%}
-                  <div class="col-md-4">
-                      
-                      <h2>{{anuncio.titulo}}</h2>
-                      
-                      <img src ={%static anuncio.foto %}  class = "image">
-                      <p>Localizado em {{anuncio.localizacao}}. Um imóvel em ótimas condições, pertencente a {{anuncio.locador}} </p>
-                      <p><a class="btn btn-danger" href="{%url 'excluir_anuncio' anuncio.id%}" role="button"> Excluir &raquo;</a> <a class="btn btn-secondary" href="{%url 'editar_anuncio' anuncio.id%}" role="button"> Editar &raquo;</a> <a class="btn btn-primary" href="{%url 'imovel' anuncio.id%}" role="button"> Visualizar &raquo;</a></p>
-                  </div>
-                {%endif%}
-              {% endfor %}
-            </div>
-            {%else%}
-            <h1>Você deve estar logado para ver seus imóveis</h1>
-            <p><a href = {%url 'login'%}>Vá para a página de login</a>
-            {%endif%}
-        <hr>
+</main>
 
-      </div> <!-- /container -->
-
-    </main>
-    
 {% endblock %}
+{%block footer%}
+<div class="footer-copyright">
+    <p class="footer-company">Todos os direitos reservados. &copy; 2022 <a href="#">Alugajha</a></p>
+</div>
+{%endblock%}

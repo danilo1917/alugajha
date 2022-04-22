@@ -16,10 +16,10 @@ urlpatterns = [
     path("cadastrar_anuncio", AnuncioCreate.as_view(), name="cadastrar_anuncio"),
     path("conta/criar_conta", ContaCreate.as_view(), name="criar_conta"),
     path("conta/login", LoginView.as_view(), name="login"),
-    path("meus_anuncios/", MeusAnunciosList.as_view(), name="meus_anuncios"),
-    path("meus_anuncios/<int:pk>", AnuncioUpdate.as_view(), name="editar_anuncio"),
+    path("meus-anuncios/", MeusAnunciosList.as_view(), name="meus_anuncios"),
+    path("meus-anuncios/<int:pk>", AnuncioUpdate.as_view(), name="editar_anuncio"),
     path(
-        "meus_anuncios/excluir/<int:pk>",
+        "meus-anuncios/excluir/<int:pk>",
         AnuncioDelete.as_view(),
         name="excluir_anuncio",
     ),

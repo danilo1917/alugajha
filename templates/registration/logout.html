@@ -1,14 +1,14 @@
-{%extends 'base.html'%}
+{%extends 'base2.html'%}
 {% load static%}
 {%block conteudo%}
-    <link rel = "stylesheet" href = {% static 'css/estilos_conta.css'%} >
-    <div class="container center-block">
-        <div class="jumbotron">
-            <div class="container">
+<link rel="stylesheet" href={% static 'css/estilos_conta.css'%}>
+<div class="container center-block">
+    <div class="jumbotron">
+        <div class="container">
             <h1>Você foi deslogado com sucesso!</h1>
-            <p><a href = {%url 'index'%}> Volte para a página inicial</a></p>
-            </div>
+            <p><a href={%url 'index'%}> Volte para a página inicial</a></p>
         </div>
     </div>
+</div>
 
 {% endblock %}

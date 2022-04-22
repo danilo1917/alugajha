@@ -31,10 +31,12 @@ def ver_imovel(request, id):
 
 def busca(request):
     busca = request.GET.get("termo")
+
     resultados = Anuncio.objects.all().filter(titulo__icontains=busca).values()
     resultados = [[resultados[i]["id"], resultados[i]] for i in range(len(resultados))]
     resultados = dict(resultados)
     resultados = {"resultados": resultados}
+    print(resultados)
     return render(request, "anuncio/buscar.html", context=resultados)
 
 
