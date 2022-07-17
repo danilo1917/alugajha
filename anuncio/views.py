@@ -5,9 +5,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
-
+import cloudinary
+from datetime import datetime
 from .models import Anuncio
-
+import os
+from decouple import config
 # Create your views here.
 
 
@@ -28,17 +30,14 @@ def ver_imovel(request, id):
     }
     return render(request, "anuncio/imovel.html", imovel_dict)
 
+class  BuscaList(ListView):
+    model = Anuncio
+    template_name = "anuncio/index.html"
 
-def busca(request):
-    busca = request.GET.get("termo")
-
-    resultados = Anuncio.objects.all().filter(titulo__icontains=busca).values()
-    resultados = [[resultados[i]["id"], resultados[i]] for i in range(len(resultados))]
-    resultados = dict(resultados)
-    resultados = {"resultados": resultados}
-    print(resultados)
-    return render(request, "anuncio/buscar.html", context=resultados)
-
+    def get_queryset(self):
+        termo = self.request.GET.get("termo","")
+        qs = Anuncio.objects.filter(titulo__icontains = termo)
+        return qs
 
 def login_usr(request):
     anuncios = Anuncio.objects.all().values()
@@ -69,7 +68,6 @@ class ContaCreate(CreateView):
         "last_name",
         User.EMAIL_FIELD,
         User.USERNAME_FIELD,
-        "password",
     ]
     template_name = "registration/criar_conta.html"
     success_url = reverse_lazy("login")
@@ -96,7 +94,15 @@ class AnuncioCreate(CreateView):
         return success_url
 
     def form_valid(self, form):
+        api_secret = config("CLOUDINARY_API_SECRET")
+        params_to_sign = {
+            'folder': 'media',
+            'tags': 'media',
+            'use_filename': 1,
+            'timestamp': int(datetime.timestamp(datetime.now()))
+        }
         self.object = form.save(commit=False)
+        
         self.object.user = self.request.user
         self.object.save()
 

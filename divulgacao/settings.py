@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import cloudinary_storage
 import django_heroku
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,13 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-4#zl=^ksz=^xp6#w&0t!do9koias=^t21z0*!hxo$!(qlc(6=t"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get("DEBUG"))
+DEBUG = config("DEBUG")
 if "True" in DEBUG:
     DEBUG = True
 else:
     DEBUG = False
-
-ALLOWED_HOSTS = ["https://alugajha.herokuapp.com/", "127.0.0.1:8000/"]
+ALLOWED_HOSTS = ["https://alugajhe.herokuapp.com/", "127.0.0.1:8000/"]
 
 # Application definition
 
@@ -128,17 +128,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-
 STATIC_URL = "/static/"
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, "media"))
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    ]
+STATIC_ROOT = BASE_DIR/'static'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': str(os.environ.get("CLOUDINARY_NAME")),
-    'API_KEY': str(os.environ.get("CLOUDINARY_API_KEY")),
-    'API_SECRET': str(os.environ.get("CLOUDINARY_API_SECRET"))
+    'CLOUD_NAME': config("CLOUDINARY_NAME"),
+    'API_KEY': config("CLOUDINARY_API_KEY"),
+    'API_SECRET': config("CLOUDINARY_API_SECRET")
 }
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type

@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
-from .views import ver_imovel, busca, AnuncioCreate
+from .views import ver_imovel, BuscaList, AnuncioCreate
 from .views import (
     AnuncioUpdate,
     AnuncioDelete,
@@ -12,7 +12,7 @@ from .views import (
 urlpatterns = [
     path("", AnuncioList.as_view(), name="index"),
     path("<int:id>/", ver_imovel, name="imovel"),
-    path("buscar/", busca, name="busca"),
+    path("buscar/", BuscaList.as_view(), name="busca"),
     path("cadastrar_anuncio", AnuncioCreate.as_view(), name="cadastrar_anuncio"),
     path("conta/criar_conta", ContaCreate.as_view(), name="criar_conta"),
     path("conta/login", LoginView.as_view(), name="login"),

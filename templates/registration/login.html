@@ -5,15 +5,15 @@
 {% block conteudo%}
 <link href="{% static 'css/estilos_login.css'%}" rel="stylesheet">
 {%if not user.is_authenticated%}
-<div class="text-center">
+<div class="text-center mt-3">
   <h1>Entre com sua conta</h1>
 
-  <div class="container">
+  <div class="container col-center col-md-6">
 
-    <div class="col-md text-center ">
+    <div class="col-md jumbotron ">
 
       <p style="color:red">{{mensagem}}</p>
-      <form class="form-signin" method='post' action={%url 'login'%}>
+      <form class="form-group " method='post' action={%url 'login'%}>
         {% csrf_token %}
         <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-box-arrow-right"
           viewBox="0 0 16 16">
@@ -37,4 +37,11 @@
 </div>
 {%endif%}
 
+{%endblock%}
+
+{%block footer%}
+
+<div class="footer-copyright " style=" width:100%;position: fixed;bottom:0;">
+  <p class="footer-company">Todos os direitos reservados. &copy; 2022 <a href="#">Alugajha</a></p>
+</div>
 {%endblock%}

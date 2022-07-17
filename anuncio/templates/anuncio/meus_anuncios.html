@@ -21,7 +21,7 @@
 
         <h2>{{anuncio.titulo}}</h2>
 
-        <img src={%static anuncio.foto %} class="image">
+        <img class="img-fluid" src={{anuncio.foto.url}}>
         <p>Localizado em {{anuncio.localizacao}}. Um imóvel em ótimas condições, pertencente a {{anuncio.locador}} </p>
         <p><a class="btn" href="{%url 'excluir_anuncio' anuncio.id%}" role="button" style="border-color:black"> Excluir
             &raquo;</a> <a class="btn " style="background-color:black; color:white;"

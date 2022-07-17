@@ -1,0 +1,13 @@
+*A variável STATICFILES_DIRS indica onde o django deve 
+procurar arquivos estático.
+
+*A variável STATIC_URL faz referência apenas à url da pasta de arquivos
+estáticos utilizada. Mudar seu valor não faz diferença funcional, apenas 
+no template, no qual a url do arquivo estático terá inicialmente essa STATIC_URL.
+
+*STATIC_ROOT é a variável que guarda o caminho em que os arquivos estáticos
+devem ser salvos quando o comando collectstatic for rodado.
+Deve-se fcar atento, pois se as pastas de arquivos estáticos de cada app 
+e a global não tiverem subpastas que representam aquele app, então
+ao rodar python manage.py collectstatic o django vai escolher apenas um arquivo
+para ficar na pasta, se houver arquivos com nomes repetidos.
